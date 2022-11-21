@@ -42,13 +42,13 @@ const signUp = async (req, res) => {
 
 const logIn = async (req, res) => {
 	try {
-		const { email, password } = req.body;
-		if (!email || !password) {
+		const { mobile, password } = req.body;
+		if (!mobile || !password) {
 			return res.status(400).json({ message: 'please provide all fields' });
 		}
 		const user = await prisma.user.findUnique({
 			where: {
-				email
+				mobile
 			}
 		});
 
